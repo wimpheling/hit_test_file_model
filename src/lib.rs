@@ -48,7 +48,7 @@ impl Kernel<Rc<Model>, HitEntry> for ModelModelKernel {
 }
 
 pub fn create_kernel() -> ModelModelKernel {
-    let project = modele!("file/filesystem", "Filesystem" =>
+    let filesystem = modele!("file/filesystem", "Filesystem" =>
         "name": FieldTypeString {
             required: true
         },
@@ -79,7 +79,7 @@ pub fn create_kernel() -> ModelModelKernel {
     );
 
     let mut models = HashMap::new();
-    models.insert(String::from("file/project"), project);
+    models.insert(String::from("file/filesystem"), filesystem);
     models.insert(String::from("file/folder"), folder);
     models.insert(String::from("file/file"), file);
     return ModelModelKernel::new(models);
